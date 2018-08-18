@@ -25,13 +25,16 @@ import time
 #         print("Well, looks like somebody is dead. Farewell, buddy")
 #         break
 #     time.sleep(1)
-hero_health = 100
+health = 100
 
 def make_damage(health):
-    damage = randint(1, 2) # GENERATE DAMAGE
-    print("Damage is", damage)
-    health -= damage # SUBTRACT DAMAGE FROM HEALTH
-    print("Current health is", health)
-    return health
-
-make_damage(hero_health)
+    while health > 0:
+        damage = randint(30, 50) # GENERATE DAMAGE
+        print("Damage is", damage)
+        health -= damage # SUBTRACT DAMAGE FROM HEALTH
+        if health <= 0:
+            print("Dead")
+            break
+        else:
+            print("Current health is", health)
+make_damage(health)
