@@ -1,0 +1,55 @@
+Battle Scene
+Hero
+Enemy
+Health Bar
+Damage
+Death
+Next Scene
+Items
+Start Scene
+Choice
+Proper Item
+Weather Generator
+Turn on
+Heavy wind
+Keep Off
+Heat
+Turn favorite mode
+Cloudy
+Invade The Base
+-------
+
+Engine
+play
+next_scene
+enter
+
+Scene
+battle_scene
+start_scene
+invade_the_base_scene
+death_scene
+
+Players
+hero
+enemy
+
+HealthManager
+health_bar
+damage
+
+Items
+gun
+cigarettes
+cellphone
+hat
+
+Weather
+strong_wind
+heat
+cloudy
+
+WeatherGenerator
+turn_on
+keep_off
+turn_favorite
