@@ -29,27 +29,48 @@ import time
 # a = BattleScene()
 # a.battle()
 
+weather_dict = {'turn on':'storm','keep off':'heat', 'turn favorite':'cloudy'}
+item_dict = {'storm': 'phone', 'heat': 'cap', 'cloudy':'cigarrete'}
 
-class StartScene(object):
-    def choose_weather(self):
-        weather_dict = {'turn on':'storm','keep off':'heat', 'turn favorite':'cloudy'}
-        print("""Friend of yours gave you a weather generator few yers ago. Wanna change the weather?
-        Here are 3 options: turn on, keep off, turn favorite""")
+weather_choice = input('Choose weather > ')
 
-        weather_conditions = ''
+## DEFINE WEATHER
+if weather_choice in weather_dict:
+    item_key = weather_dict[weather_choice]
+    print(item_key)
+else:
+    print("None")
 
-        while weather_conditions != None:
-            user_choice = input("> ")
+## DEFINE PROPER ITEM
+if item_key in item_dict:
+    item_val = item_dict[item_key]
+    print(item_val)
+else:
+    print("None")
 
-            if user_choice in weather_dict:
-                weather_conditions = weather_dict[user_choice]
-                return weather_conditions
-                exit(0)
-            else:
-                print("No such mode, try one more time")
-    def weather_choice(weather_conditions):
-        pick = weather_conditions
-        print(pick)
+next_step = input("Choose item > ")
 
-a = StartScene()
-a.choose_weather()
+## DEFINE PASS OR FAIL
+if next_step == item_val:
+    print("Go further")
+    print(next_step, item_val)
+elif next_step == 'gun':
+    print("Start battle")
+else:
+    print("You fail")
+    print(next_step, item_val)
+
+        # print("""Friend of yours gave you a weather generator few yers ago. Wanna change the weather?
+        # Here are 3 options: turn on, keep off, turn favorite""")
+        #
+        # weather_conditions = ''
+        #
+        # while weather_conditions != None:
+        #     user_choice = input("> ")
+        #
+        #     if user_choice in weather_dict:
+        #         weather_conditions = weather_dict[user_choice]
+        #         return weather_conditions
+        #         exit(0)
+        #     else:
+        #         print("No such mode, try one more time")
