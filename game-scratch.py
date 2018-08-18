@@ -63,7 +63,7 @@ items = ['gun', 'cigarettes', 'phone', 'hat']
 weather_conditions = 'cloudy'
 
 
-item_choice = input(">>> ")
+item_choice = input(">_> ")
 ## # IDEA: REFACTOR THIS BY STORING OPTIONS IN DICTIONARY
 if item_choice == 'gun':
     print('start battle')
