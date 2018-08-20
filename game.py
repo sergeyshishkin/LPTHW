@@ -35,19 +35,51 @@ import time
 #     print("You fail")
 #     print(next_step, item_val)
 
-# ### PROTOTYPE OF HEALTH|DAMAGE MECHANIZM
+# ### COMPLETED HEALTH|DAMAGE MECHANISM
+hero_health = 200
+enemy_health = 200
 
-# a = 100
-# b = 60
-#
-# def fun(a,b):
-#     damage = 10
-#
-#     while a > 0 and b > 0:
-#         a -= damage
-#         b -= damage
-#         print ("loc_a: ", a, "loc_b: ", b)
-#         if a <= 0 or b <= 0:
-#             break
-#
-# fun(a,b)
+def fun(hero_health, enemy_health):
+
+    while hero_health > 0 and enemy_health > 0:
+
+        # FUNCTION THAT GENERATES DAMAGE, SHOW TEXT ABOUT DAMAGE AND WHO DID THE DAMAGE
+        def generate_damage(user):
+            damage = randint(50, 150)
+            if damage >= 50 and damage <= 70:
+                print(user, "strikes poorly and hit only",damage,"damage")
+            elif damage >= 130 and damage <= 150:
+                print(user, "strikes a great hit! Damage is",damage)
+            else:
+                print(user, "strikes ordinary",damage,"damage")
+            return damage
+
+        # CALLING generate_damage FUNCTION
+        damage = generate_damage("Enemy")
+
+        # HERE IS CALCULATING HEALTH AND FATAL LEVEL FOR HERO
+        hero_health -= damage
+        print ("New hero health is: ", hero_health)
+        if hero_health <= 0:
+            print("Well, looks like hero is dead. Farewell, buddy")
+            break
+        else:
+            pass
+
+        time.sleep(1) #DELAY TO MAKE GAME NOT SO RAPID
+
+        # CALLING generate_damage FUNCTION
+        damage = generate_damage("Hero")
+
+        # HERE IS CALCULATING HEALTH AND FATAL LEVEL FOR ENEMY
+        enemy_health -= damage
+        print ("New enemy health is: ", enemy_health)
+        if enemy_health <= 0:
+            print("Enemy is dead. Hero goes further")
+            break
+        else:
+            pass
+
+        time.sleep(1) #DELAY TO MAKE GAME NOT SO RAPID
+
+fun(hero_health, enemy_health)
