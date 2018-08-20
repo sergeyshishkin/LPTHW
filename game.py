@@ -34,3 +34,5 @@ import time
 # else:
 #     print("You fail")
 #     print(next_step, item_val)
+
+# ### PROTOTYPE OF HEALTH|DAMAGE MECHANIZM

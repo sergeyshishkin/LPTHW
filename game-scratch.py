@@ -26,12 +26,31 @@ import time
 #         break
 #     time.sleep(1)
 
-def make_damage(health_level):
-    damage = randint(30, 50) # GENERATE DAMAGE
-    print("Damage is", damage)
-    health = health_level
-    health -= damage # SUBTRACT DAMAGE FROM HEALTH
-    print("Current health is", health)
-    return damage, health
+# def make_damage(health_level):
+#     damage = randint(30, 50) # GENERATE DAMAGE
+#     print("Damage is", damage)
+#     health = health_level
+#     health -= damage # SUBTRACT DAMAGE FROM HEALTH
+#     print("Current health is", health)
+#     return damage, health
+#
+# make_damage(100)
 
-make_damage(100)
+a = 100
+b = 60
+
+def fun(a,b):
+    loc_a = 0
+    loc_b = 0
+    damage = 10
+    loc_a = a
+    loc_b = b
+
+    while loc_a > 0 and loc_b > 0:
+        loc_a -= damage
+        loc_b -= damage
+        print ("loc_a: ", loc_a, "loc_b: ", loc_b)
+        if loc_a <= 0 or loc_b <= 0:
+            break
+
+fun(a,b)
