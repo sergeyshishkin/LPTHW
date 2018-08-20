@@ -2,14 +2,6 @@ from sys import exit
 from random import randint
 import time
 
-## HEALTH/DAMAGE MANAGMENT
-
-# health = 800 # updatable health level during battle
-# damage = 0 # variable storing damage level
-#
-# while health >= 0:
-#     damage = randint(50, 150)
-#     health -= damage
 # ## MESSAGING DURING BATTLE
 #     if damage >= 50 and damage <= 70:
 #         print("Shaking hands, huh? Damage is just",damage)
@@ -26,32 +18,57 @@ import time
 #         break
 #     time.sleep(1)
 
-# def make_damage(health_level):
-#     damage = randint(30, 50) # GENERATE DAMAGE
-#     print("Damage is", damage)
-#     health = health_level
-#     health -= damage # SUBTRACT DAMAGE FROM HEALTH
-#     print("Current health is", health)
-#     return damage, health
-#
-# make_damage(100)
 
-# ### PROTOTYPE OF HEALTH|DAMAGE MECHANIZM
-a = 100
-b = 60
+# ### EXTENDED PROTOTYPE OF HEALTH|DAMAGE MECHANIZM
+hero_health = 500
+enemy_health = 500
 
-def fun(a,b):
-    loc_a = 0
-    loc_b = 0
-    damage = 10
-    loc_a = a
-    loc_b = b
+def fun(hero_health, enemy_health):
 
-    while loc_a > 0 and loc_b > 0:
-        loc_a -= damage
-        loc_b -= damage
-        print ("loc_a: ", loc_a, "loc_b: ", loc_b)
-        if loc_a <= 0 or loc_b <= 0:
+## # TODO: WRAP DAMAGE VARIATOR IN FUNCTION
+
+    while hero_health > 0 and enemy_health > 0:
+        # HERE IS CALCULATING DAMAGE FOR HERO
+        damage = randint(50, 150)
+        if damage >= 50 and damage <= 70:
+            print("Shaking hands, huh? Damage is just",damage)
+
+        elif damage >= 130 and damage <= 150:
+            print("What a hit! Damage is",damage)
+
+        else:
+            print("Damage is",damage)
+        # HERE IS CALCULATING HEALTH AND FATAL LEVEL FOR HERO
+        hero_health -= damage
+        if hero_health <= 0:
+            print("Well, looks like hero is dead. Farewell, buddy")
             break
+        else:
+            pass
+        print ("New hero health is: ", hero_health)
 
-fun(a,b)
+        time.sleep(1) #DELAY TO MAKE GAME MORE USER FRIENDLY
+
+        # HERE IS CALCULATING DAMAGE FOR ENEMY
+        damage = randint(50, 150)
+        if damage >= 50 and damage <= 70:
+            print("Shaking hands, huh? Damage is just",damage)
+
+        elif damage >= 130 and damage <= 150:
+            print("What a hit! Damage is",damage)
+
+        else:
+            print("Damage is",damage)
+        # HERE IS CALCULATING HEALTH AND FATAL LEVEL FOR ENEMY
+        enemy_health -= damage
+        if enemy_health <= 0:
+            print("Enemy is dead. Hero goes further")
+            break
+        else:
+            pass
+        print ("New enemy health is: ", enemy_health)
+
+        time.sleep(1) #DELAY TO MAKE GAME MORE USER FRIENDLY
+
+
+fun(hero_health, enemy_health)
