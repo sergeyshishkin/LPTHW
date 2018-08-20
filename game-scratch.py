@@ -36,6 +36,7 @@ import time
 #
 # make_damage(100)
 
+# ### PROTOTYPE OF HEALTH|DAMAGE MECHANIZM
 a = 100
 b = 60
 
