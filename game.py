@@ -34,3 +34,24 @@ import time
 # else:
 #     print("You fail")
 #     print(next_step, item_val)
+
+# ### PROTOTYPE OF HEALTH|DAMAGE MECHANIZM
+
+# a = 100
+# b = 60
+#
+# def fun(a,b):
+#     loc_a = 0
+#     loc_b = 0
+#     damage = 10
+#     loc_a = a
+#     loc_b = b
+#
+#     while loc_a > 0 and loc_b > 0:
+#         loc_a -= damage
+#         loc_b -= damage
+#         print ("loc_a: ", loc_a, "loc_b: ", loc_b)
+#         if loc_a <= 0 or loc_b <= 0:
+#             break
+#
+# fun(a,b)
