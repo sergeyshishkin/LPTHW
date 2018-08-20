@@ -59,7 +59,7 @@ def fun(hero_health, enemy_health):
 
         # HERE IS CALCULATING HEALTH AND FATAL LEVEL FOR HERO
         hero_health -= damage
-        print ("New hero health is: ", hero_health)
+        print ("New hero health is: ", hero_health) #IN PRODUCTION, MOVE THIS LINE AFTER "ELSE: PASS"
         if hero_health <= 0:
             print("Well, looks like hero is dead. Farewell, buddy")
             break
@@ -73,7 +73,7 @@ def fun(hero_health, enemy_health):
 
         # HERE IS CALCULATING HEALTH AND FATAL LEVEL FOR ENEMY
         enemy_health -= damage
-        print ("New enemy health is: ", enemy_health)
+        print ("New enemy health is: ", enemy_health) #IN PRODUCTION, MOVE THIS LINE AFTER "ELSE: PASS"
         if enemy_health <= 0:
             print("Enemy is dead. Hero goes further")
             break
