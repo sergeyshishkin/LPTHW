@@ -84,69 +84,54 @@ import time
 #
 # fun(hero_health, enemy_health)
 
-"""
-How to improve:
-1. If stay with firstblood(), make script continue, so first hit won't repeat. Issue is, how throw 'user' to generate_damage(), so it won't be only one user who make damage
-2. If stay with all random hits, don't override initial health outside function, only inside function
-3. For all options, don't override initial health outside function, only inside function
-"""
 
-global hero_health
-global enemy_health
+### EXTENDED HEALTH\DAMAGE MECHANISM WITH RANDOM ORDER OF WHO MAKE DAMAGE
+# SET VARIABLES OF INITIAL HEALTH
+
 hero_health = 300
 enemy_health = 300
 
-has_run = False
 
 while hero_health > 0 and enemy_health > 0:
 
-    def firstblood():
+    # FUNCTION THAT RANDOMLY DEFINE WHO MAKE DAMAGE, RANDOMLY DEFINE DAMAGE VALUE. PASS damage VALUE AND user TO health_calc()
+    def generate_damage():
         b = randint(1,2)
-        global has_run
         if b == 1:
-            # CALLING generate_damage FUNCTION
             print("Enemy strikes")
-            has_run = True
-            print(has_run,"in func")
-            generate_damage("Enemy")
-
+            damage = randint(50, 150)
+            print("Enemy make",damage, "damage")
+            health_calc(damage, "Enemy")
 
         else:
-            # CALLING generate_damage FUNCTION
             print("Hero strikes")
-            has_run = True
-            print(has_run,"in func")
-            generate_damage("Hero")
+            damage = randint(50, 150)
+            print("Hero make",damage,"damage")
+            health_calc(damage, "Hero")
 
-    def generate_damage(user):
-        damage = randint(50, 150)
-        print(user, "make damage")
-        #return user, damage
-        health_calc(damage, user)
-
-
+    # CALCULATING HEALTH AFTER GETTING DAMAGE, AND FATAL LEVEL FOR user
     def health_calc(damage, user):
+
         global hero_health
         global enemy_health
 
         if user == 'Enemy':
-            hero_health -= damage
             print("Enemy kick hero")
-            print("Hero health",hero_health)
+            print("current hero health is", hero_health)
+            hero_health -= damage
+            print("New Hero health",hero_health)
+
         else:
-            enemy_health -= damage
             print("Hero kick enemy")
-            print("Enemy health",enemy_health)
+            print("Current enemy health is", enemy_health)
+            enemy_health -= damage
+            print("New Enemy health",enemy_health)
 
-        if hero_health <= 0 or enemy_health <= 0:
-            print(user,"is dead")
+        if hero_health <= 0:
+            print("Hero is dead")
+        elif enemy_health <= 0:
+            print("Enemy is dead")
         else:
-            firstblood()
+            generate_damage()
 
-
-    if has_run == False:
-        print(has_run)
-        firstblood()
-    else:
-        #print("firstblood already executes")
-        pass
+    generate_damage()
